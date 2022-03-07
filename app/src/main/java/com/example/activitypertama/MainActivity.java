@@ -44,27 +44,32 @@ public class MainActivity extends AppCompatActivity {
                 //menyimpan input user di edittext password kedalam variabel password
                 password = edpassword.getText().toString();
 
-                //membuat variabel toast dan membuaat toast dengan menambahkan variabel nama dan password
-                Toast t = Toast.makeText(getApplicationContext(), "email anda: " + nama + " dan Password anda: " + password + "", Toast.LENGTH_LONG);
-
-                //menampilkan toast
-                t.show();
+                String email="irsyad";
+                String password="1234";
 
                 //membuat fungsi permisalan
                     //Login berhasil
                     if
-                    (nama.equals("m.irsyad@gmail.com") && password.equals("irsyad123")) {
+                    (nama.equals(email) && password.equals(password)) {
                         Toast.makeText(getApplicationContext(), "Login Berhasil", Toast.LENGTH_LONG).show();
-
+                        Bundle b = new Bundle();
+                        b.putString("a",nama.trim());
+                        b.putString("b",password.trim());
+                        Intent i = new Intent(getApplicationContext(),activity2.class);
+                        i.putExtras(b);
+                        startActivity(i);
+                    }
+                    else if (nama.isEmpty()||password.isEmpty()){
+                        Toast.makeText(getApplicationContext(),"Email dan Password tidak boleh kosong",Toast.LENGTH_LONG).show();
                     }
                     //Email Salah
-                    else if (password.equals("irsyad123")) {
+                    else if (password.equals(password)) {
                         //jika Email salah
                         Toast.makeText(getApplicationContext(), "Email salah", Toast.LENGTH_LONG).show();
 
                     }
                     //Password Salah
-                    else if (nama.equals("m.irsyad@gmail.com")) {
+                    else if (nama.equals(email)) {
                         //jika Password salah
                         Toast.makeText(getApplicationContext(), "Password Salah", Toast.LENGTH_LONG).show();
 
